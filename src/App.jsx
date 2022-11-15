@@ -7,6 +7,7 @@ function App() {
 
   const [game, setGame] = useState(false)
   const [endgame, setEndgame] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [questions, setQuestions] = useState([])
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [dummy, setDummy] = useState(false)
@@ -30,7 +31,10 @@ useEffect(() => {
         answers: allAnswers,
         correctAnswer: q.correct_answer
       }
-    })));
+    })))
+    .then(setTimeout(() => {
+        setIsLoading(false);
+      }, 500));
 },[dummy]) 
 
 
@@ -72,20 +76,12 @@ function hold(id, name) {
       }
     })
     setEndgame(true)
-    ending()
-  }
-  
-  function ending() {
-    if(endgame){
-      // styles = {
-
-      // }
-    }
   }
 
   function handlePlayAgain() {
     setEndgame(false)
     setCorrectAnswers(0)
+    setIsLoading(true)
     setDummy(prevDummy => !prevDummy)
   }
 
@@ -99,6 +95,7 @@ function hold(id, name) {
         hold={hold} 
         handleCheck={handleCheck}
         handlePlayAgain={handlePlayAgain}
+        isLoading={isLoading}
         /> : 
       <Start handlePlay={handlePlay} />}
     </div>
