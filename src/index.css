@@ -152,8 +152,31 @@ body {
 
 @media only screen and (max-width: 500px) {
   .up-right::before, .up-right::after {
-    width: 200px !important;
-    height: 130px !important;
+    display: none;
+  }
+
+  .start::before {
+    content: "";
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #fffad1;
+    transform: rotate(-128deg) translate(10%, 60%);
+    border-radius: 40%;
+    width: 300px;
+    height: 230px;
+  }
+  
+  .start::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #deebf8;
+    transform: translate(-30%, 40%);
+    border-radius: 40%;
+    width: 300px;
+    height: 230px;
   }
 
   .question h3 {
