@@ -139,6 +139,7 @@ body {
 .play-again {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 80%;
 }
 
@@ -147,4 +148,29 @@ body {
   font-weight: 700;
   font-size: 2rem;
   text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .up-right::before, .up-right::after {
+    width: 200px !important;
+    height: 130px !important;
+  }
+
+  .question h3 {
+    font-size: 1rem;
+  }
+
+  .answers button {
+    font-size: 0.7rem;
+    margin: 0 5px 5px 0;
+  }
+
+  .play-again h3 {
+    font-size: 1rem;
+  }
+
+  .button-container button {
+    padding: 10px 20px;
+    font-size: 0.7rem;
+  }
 }
